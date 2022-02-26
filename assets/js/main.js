@@ -1,4 +1,14 @@
 $(function () {
+  "use strict";
+  $(window).on("scroll", function (event) {
+    var scroll = $(window).scrollTop();
+    if (scroll < 20) {
+      $(".navbar-area").removeClass("sticky");
+    } else {
+      $(".navbar-area").addClass("sticky");
+    }
+  });
+
   $(document).ready(function () {
     $(".venobox").venobox();
   });
@@ -11,6 +21,7 @@ $(function () {
     container: ".testimonial-active",
     items: 1,
     slideBy: "page",
+    mouseDrag:true,
     autoplay: false,
     nav: false,
     controlsText: [
@@ -18,4 +29,7 @@ $(function () {
       '<i class= "fas fa-angle-right next"></i>',
     ],
   });
+
+  // Scrollit Js
+  $.scrollIt();
 });
